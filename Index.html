@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.8/dist/inputmask.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/brazilian-values@0.12.0/dist/brazilian-values.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/just-validate@4.3.0/dist/just-validate.production.min.js" defer></script>
+    <script src="./assets/js/utils.js" defer></script>
+    <script src="./assets/js/validator.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+
+
+
+    <title>Sistema de agendamento do museu do palácio dos leões</title>
+</head>
+
+<body>
+    <!-- Cabeçalho com menu -->
+    <header>
+        <nav class="nav-bar">
+            <img class="logo" src="./assets/images/logomuseubranco.png" alt="Logo do Museu do Palácio dos Leões">
+            <div class="nav-list">
+                <ul>
+                    <li class="navItem"><a href="#" class="nav-link">INÍCIO</a></li>
+                    <li class="navItem"><a href="#" class="nav-link">NORMAS</a></li>
+                    <li class="navItem"><a href="#" class="nav-link button-red">AGENDE SUA VISITA</a></li>
+                </ul>
+            </div>
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="hamburguer-icon" src="./assets/images/icon-menu.png"
+                        alt="icone de menu"></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li class="navItem item-with-border">
+                    <a href="#" class="nav-link">INÍCIO</a>
+                </li>
+                <li class="navItem item-with-border">
+                    <a href="#" class="nav-link">NORMAS</a>
+                </li>
+                <li class="navItem">
+                    <a href="#" class="nav-link">AGENDE SUA VISITA</a>
+                </li>
+            </ul>
+        </div>
+        <!-- imagem hero desktop -->
+        <div class="hero-container">
+            <img class="hero-logo" src="./assets/images/logo_sistema.png" alt="desenho do palácio dos leões">
+        </div>
+
+    </header>
+
+    <main>
+        <!-- <section id="form-header">
+            <h1 id="form-title">Agende sua visita - Pessoa Física</h1>
+            <p id="form-subtitle">Preencha o formulário para finalizar o agendamento</p>
+        </section> -->
+
+        <form action="" method="post" class="form-container">
+
+
+            <div id="input-container">
+
+
+                <section id="form-header">
+                    <h1 id="form-title">Agende sua visita - Pessoa Física</h1>
+                    <p id="form-subtitle">Preencha o formulário para finalizar o agendamento</p>
+                </section>
+
+
+
+                <div class="input-box-full">
+                    <label for="nome" class="form-label">Nome Completo
+                    </label>
+                    <div class="input-field">
+                        <input type="text" name="nome" id="name" class="form-control" required
+                            pattern="^[A-Za-zÀ-ÿ\s'-]{3,}$">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="cpf" class="form-label">CPF
+                    </label>
+                    <div class="input-field">
+                        <input type="text" name="cpf" id="cpf" class="form-control" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                            autocomplete="off" maxlength="14" required>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="rg" class="form-label">RG
+                    </label>
+                    <div class="input-field">
+                        <input type="text" name="rg" id="rg" class="form-control" autocomplete="off" required>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control" required
+                            aria-describedby="emailHelp" aria-invalid="false" />
+                        <small id="emailHelp" class="hint" aria-live="polite"></small>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="telefone" class="form-label">Telefone
+                    </label>
+                    <div class="input-field">
+                        <input type="tel" name="telefone" id="telefone" class="form-control" autocomplete="off"
+                            inputmode="tel" required>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="nacionalidade" class="form-label">Nacionalidade
+                    </label>
+                    <div class="input-field">
+                        <select id="nacionalidade" name="nacionalidade" class="form-control" required>
+                            <option value="" disabled selected></option>
+                            <option value="br">Brasileiro(a)</option>
+                            <option value="ext">Estrangeiro(a)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label for="deficiencia" class="form-label">Possui deficiência ou mobilidade reduzida?
+                    </label>
+                    <div class="input-field">
+                        <select id="deficiencia" name="deficiencia" class="form-control" required>
+                            <option value="" disabled selected></option>
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-box-full">
+                    <label for="data" class="form-label">Data da Visita</label>
+                    <div class="input-field">
+                        <input type="date" id="data" name="data" class="form-control" required
+                            aria-describedby="dataHelp" aria-invalid="false"
+                            onchange="buscarHorariosDisponiveis(this.value)" />
+                        <small id="dataHelp" class="hint" aria-live="polite"></small>
+                    </div>
+                </div>
+
+                <div class="input-box-full">
+                    <label for="hora" class="form-label">Horário da visita</label>
+
+
+                    <div id="horariosGrid" class="horarios-grid" aria-live="polite"></div>
+
+
+                    <!-- valor escolhido vai aqui pra ir no submit -->
+                    <input type="hidden" name="hora" id="hora">
+                    <small id="horaHelp" class="hint" aria-live="polite"></small>
+                </div>
+            </div>
+
+            <button type="submit" class="button-agen">Finalizar Agendamento</button>
+        </form>
+    </main>
+
+    <div class="footer-spacer" aria-hidden="true"></div>
+
+    <footer class="footer">
+
+        <div class="footer__top">
+
+
+            <div class="footer_logo_area">
+
+                <div class="footer_logo_area_section_one">
+                    <img class="footer-logo-museu-palacio" src="./assets/images/logo_museu.svg"
+                        alt="Museu Palácio dos Leões" class="logo-footer">
+                    <img class="footer-logo-governo-maranhao" src="./assets/images/logo_estado.png"
+                        alt="Governo do Maranhão" class="logo-footer">
+                </div>
+
+
+                <div class="footer_redes_sociais_area" aria-label="Redes sociais">
+                    <a href="#" aria-label="Facebook">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/facebook 1.png"
+                            alt="Facebook" />
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/instagram.png"
+                            alt="Instagram" />
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/youtube.png" alt="YouTube" />
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/tiktok 1.png" alt="TikTok" />
+                    </a>
+                    <a href="#" aria-label="Telegram">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/telegram.png"
+                            alt="Telegram" />
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <img class="footer_redes_sociais_area_icons" src="./assets/images/twitter.png" alt="Twitter" />
+                    </a>
+                </div>
+
+
+
+            </div>
+            <div class="footer_addres_area">
+                <p>R. Dom Pedro II, S/N - Centro, São Luís - MA, 65010-070</p>
+                <p style="margin-bottom: 10px;">Terça-feira a domingo • 09h às 17h</p>
+                <p>E-mail: <a style="color: white;" href="mailto:direcaopalacio@gmail.com">direcaopalacio@gmail.com</a></p>
+            </div>
+
+        </div>
+
+
+        <!-- --------------------------------------------------------------------- -->
+
+
+        <div class="footer__bottom">
+            <img src="./assets/images/ati_logo_branca 1.png" alt="ATI" class="logo-ati">
+            <p class="direitos">© Todos os direitos reservados. | Governo do Maranhão</p>
+        </div>
+    </footer>
+</body>
+
+</html>

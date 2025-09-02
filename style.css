@@ -1,0 +1,674 @@
+/* ========================================
+   IMPORTAÇÕES E CONFIGURAÇÕES GLOBAIS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Reset e configurações base */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   HEADER E NAVEGAÇÃO
+   ======================================== */
+
+/* Header principal */
+header {
+    background-color: #BA9957;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+}
+
+/* Barra de navegação */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+}
+
+/* Logo do museu */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 145px;
+    width: 70px;
+}
+
+/* Lista de navegação */
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list ul {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    list-style: none;
+}
+
+.navItem {
+    margin: 0 15px;
+}
+
+/* Links de navegação */
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 10px;
+}
+
+.nav-link:hover {
+    background: rgba(9, 9, 9, 0.04);
+}
+
+/* Botão vermelho especial */
+.button-red {
+    background: #861A1C;
+    color: #fff;
+    transition: background .2s ease;
+    border-radius: 10px;
+}
+
+.button-red:hover {
+    background: #6d1416;
+}
+
+/* ========================================
+   MENU MOBILE
+   ======================================== */
+
+/* Ícone do menu mobile */
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu-icon button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburguer-icon {
+    width: 32px;
+    height: 42px;
+}
+
+/* Menu mobile */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 90px;
+    width: 100%;
+    background: #111;
+    z-index: 1100;
+    display: grid;
+    overflow: hidden;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: transform .18s ease-out, opacity .18s ease-out;
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #FBF8F4;
+    grid-template-rows: auto;
+    padding-top: 10px;
+}
+
+.mobile-menu .navItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #FBF8F4;
+}
+
+.mobile-menu .item-with-border {
+    border-bottom: 1px solid #d8d6d6;
+}
+
+.mobile-menu .nav-link {
+    color: #000000;
+    padding-top: 5px;
+    font-size: small;
+    background-color: #FBF8F4;
+}
+
+.mobile-menu .navItem:hover {
+    background: rgba(9, 9, 9, 0.04);
+}
+
+.mobile-menu .nav-link:hover {
+    background: transparent;
+}
+
+/* Estado aberto do menu mobile */
+.open {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url(./assets/images/background-hero.png);
+    height: 323px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-container .hero-logo {
+    width: auto;
+    margin-top: 70px;
+    background-color: transparent;
+}
+
+/* ========================================
+   FORMULÁRIO DE AGENDAMENTO
+   ======================================== */
+
+/* Container principal do formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 125px;
+    border-radius: 8px;
+    min-height: 100vh;
+    background-color: #FBF8F4;
+    overflow: hidden;
+}
+
+/* Cabeçalho do formulário */
+#form-header {
+    margin-bottom: 2rem;
+}
+
+#form-title {
+    font-weight: 570;
+    color: #1E1E1E;
+    font-size: 30px;
+    margin-bottom: 1px;
+}
+
+#form-subtitle {
+    font-weight: normal;
+    color: #858585;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+/* Container dos inputs */
+#input-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 28px;
+    padding: 0;
+    font-size: 23px;
+    color: #1E1E1E;
+    overflow: hidden;
+}
+
+/* Layout dos campos */
+.input-box-full {
+    grid-column: 1 / -1;
+}
+
+.input-field {
+    position: relative;
+}
+
+/* Labels */
+.form-label {
+    font-size: 18px;
+}
+
+/* Campos de entrada */
+.input-field>input.form-control,
+.input-field>select.form-control {
+    width: 100%;
+    height: 56px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: #E8EAED;
+    color: #111;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+/* Select customizado */
+.input-field>select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 44px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 20px;
+}
+
+/* Estados de foco */
+.form-control:focus {
+    outline: none;
+    border-color: #BA9957;
+    box-shadow: 0 0 0 3px rgba(121, 97, 1, 0.25);
+}
+
+/* Estados de validação */
+.form-control.is-invalid {
+    border-color: #B00020;
+    box-shadow: 0 0 0 3px rgb(176, 0, 32);
+}
+
+.form-control.is-valid {
+    border-color: #138a36;
+    box-shadow: 0 0 0 3px rgb(19, 138, 55);
+}
+
+/* ========================================
+   SISTEMA DE HORÁRIOS
+   ======================================== */
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 18px;
+}
+
+/* Botões de horário */
+.slot {
+    appearance: none;
+    border: 1px solid #E0E0E0;
+    background: #E8EAED;
+    border-radius: 14px;
+    padding: 18px 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .05s, box-shadow .15s, background .15s, border-color .15s;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    padding: 0 8px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #e9ecef;
+    font: 600 16px/1 "Source Sans 3", system-ui, sans-serif;
+    color: #111;
+}
+
+.slot:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .06);
+}
+
+.slot:active {
+    transform: translateY(1px);
+}
+
+/* Estado ativo do horário */
+.slot--active {
+    background: #861A1C;
+    color: #fff;
+    border-color: #861A1C;
+    box-shadow: 0 6px 14px rgba(134, 26, 28, .18);
+}
+
+/* Estado desabilitado */
+.slot:disabled {
+    cursor: not-allowed;
+    background: #f6f6f6;
+    color: #bdbdbd;
+    border-color: #e6e6e6;
+    box-shadow: none;
+    opacity: .9;
+}
+
+/* ========================================
+   BOTÃO DE AGENDAMENTO
+   ======================================== */
+
+.button-agen {
+    margin-left: 27rem;
+    padding: 16px 28px;
+    min-width: min(420px, 90%);
+    border: 0;
+    border-radius: 14px;
+    background: #861A1C;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(134, 26, 28, .18);
+    transition: background .15s, transform .05s, box-shadow .15s;
+    position: relative;
+}
+
+.button-agen:hover {
+    background: #6d1416;
+}
+
+.button-agen:active {
+    transform: translateY(1px);
+}
+
+/* Estado de carregamento */
+.button-agen[aria-busy="true"] {
+    pointer-events: none;
+    opacity: .85;
+}
+
+.button-agen[aria-busy="true"]::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: spin .7s linear infinite;
+}
+
+/* ========================================
+   MENSAGENS E FEEDBACK
+   ======================================== */
+
+/* Dicas e mensagens */
+.hint {
+    display: block;
+    margin-top: 6px;
+    font-size: .92rem;
+}
+
+.hint.err {
+    color: #B00020;
+    border: #B00020;
+}
+
+.hint.ok {
+    color: #138a36;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+/* Espaçador antes do footer */
+.footer-spacer {
+    height: 56px;
+    background: #FBF8F4;
+}
+
+/* Footer principal */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    height: 470px;
+    padding: 28px 16px 18px;
+    background: #861A1C;
+    background-image: url('./assets/images/background-footer.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Seção superior do footer */
+.footer__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+}
+
+/* Área dos logos */
+.footer_logo_area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer_logo_area_section_one {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.logo-footer {
+    height: auto;
+}
+
+.footer-logo-museu-palacio {
+    height: 100px;
+    margin: 10px;
+}
+
+.footer-logo-governo-maranhao {
+    height: 100px;
+    margin: 10px;
+}
+
+/* Redes sociais */
+.footer_redes_sociais_area {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer_redes_sociais_area_icons {
+    width: 55px;
+}
+
+/* Área de endereço */
+.footer_addres_area {
+    padding: 0 50px;
+    font-size: 20px;
+}
+
+.footer_addres_area p {
+    margin: 4px 0;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 24px;
+}
+
+.footer_addres_area a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Seção inferior do footer */
+.footer__bottom {
+    border-top: 1px solid rgb(168, 115, 10);
+    margin-top: 20px;
+    padding-top: 10px;
+    display: grid;
+    gap: 10px;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    height: 10rem;
+}
+
+.logo-ati {
+    height: auto;
+    margin-top: 20px;
+}
+
+/* ========================================
+   UTILITÁRIOS E ESTADOS
+   ======================================== */
+
+/* Classe para ocultar elementos */
+.is-hidden {
+    display: none !important;
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE - MOBILE
+   ======================================== */
+
+@media screen and (max-width: 844px) {
+    /* Ajustes do formulário */
+    #form-title {
+        font-size: 25px;
+    }
+
+    #form-subtitle {
+        font-size: 19px;
+    }
+
+    #input-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 2rem;
+        gap: 2rem;
+    }
+
+    .button-agen {
+        margin-left: 0;
+        padding: 15px;
+        min-width: min(420px, 90%);
+    }
+
+    /* Ajustes da navegação */
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+
+    .logo {
+        max-width: 40px;
+        max-height: 52px;
+        margin-left: 10px;
+    }
+
+    .navItem {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    /* Ajustes do hero */
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-container .hero-logo {
+        width: 180px;
+        margin-top: 50px;
+    }
+
+    /* Ajustes do footer */
+    .footer {
+        height: auto;
+        padding-bottom: 250px;
+    }
+
+    .footer__top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .footer_logo_area_section_one {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .footer-logo-museu-palacio {
+        width: 60px;
+    }
+
+    .footer-logo-governo-maranhao {
+        width: 150px;
+        height: 60px;
+    }
+
+    .footer_redes_sociais_area {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer_addres_area {
+        padding: 0 50px;
+        font-size: 10px;
+    }
+
+    /* Grid de horários responsivo */
+    #horariosGrid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+    }
+}
+
+/* ========================================
+   RESPONSIVIDADE - GRID DE HORÁRIOS
+   ======================================== */
+
+@media (max-width: 900px) {
+    #horariosGrid {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+        gap: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    #horariosGrid {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    #horariosGrid {
+        grid-template-columns: 1fr;
+    }
+}
