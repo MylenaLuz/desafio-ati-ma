@@ -14,15 +14,15 @@ function validarDataPassadaAndSegundaFeira(value){
     // Data mínima = hoje
     setMinHojeNoInputDate();
 
-    // Cria UMA instância só
+   
     var validator = new window.JustValidate('form.form-container', {
         validateBeforeSubmitting: true,
         focusInvalidField: true,
         lockForm: true,
-        errorLabelCssClass: 'hint err',   // mensagens abaixo do campo
+        errorLabelCssClass: 'hint err',   
         successLabelCssClass: 'hint ok',
-        errorFieldCssClass: 'is-invalid', // <<< borda vermelha
-        successFieldCssClass: 'is-valid'  // <<< borda verde
+        errorFieldCssClass: 'is-invalid', 
+        successFieldCssClass: 'is-valid'  
     });
 
     // Nome
@@ -44,7 +44,7 @@ function validarDataPassadaAndSegundaFeira(value){
         { rule: 'email', errorMessage: 'Formato de e-mail inválido.' }
     ]);
 
-    // Telefone: entre 10 e 20 dígitos (contando DDI)
+    // Telefone
     validator.addField('#telefone', [
         {
         validator: function (value) {
@@ -66,19 +66,19 @@ function validarDataPassadaAndSegundaFeira(value){
         validator: function (value) {
             var nacEl = document.getElementById('nacionalidade');
             var nac = nacEl ? nacEl.value : '';
-            if (nac === 'ext') return true;     // estrangeiro não precisa
+            if (nac === 'ext') return true;     
             var raw = onlyDigits(value);
             if (raw.length !== 11) return false;
             if (window.BrazilianValues && window.BrazilianValues.isCPF) {
             return BrazilianValues.isCPF(value);
             }
-            return true; // fallback
+            return true; 
         },
         errorMessage: 'CPF inválido.'
         }
     ]);
 
-    // RG (só se BR) — validação simples de tamanho
+    // RG (só se BR) 
     validator.addField('#rg', [
         {
         validator: function (value) {
@@ -92,7 +92,7 @@ function validarDataPassadaAndSegundaFeira(value){
         }
     ]);
 
-    // Data: não pode ser passado nem segunda
+    // Data
     validator.addField('#data', [
         { rule: 'required', errorMessage: 'Selecione a data.' },
         {
@@ -101,7 +101,7 @@ function validarDataPassadaAndSegundaFeira(value){
         }
     ]);
 
-    // Hora: janela de 09:00–17:00 (exemplo)
+    // Hora
     validator.addField('#hora', [
         { rule: 'required', errorMessage: 'Selecione a hora.' },
         {
@@ -112,7 +112,7 @@ function validarDataPassadaAndSegundaFeira(value){
         }
     ]);
 
-    // Se mudar nacionalidade, revalida cpf/rg
+    // revalidação cpf/rg caso mude nacionalidade
     var selNac = document.getElementById('nacionalidade');
     if (selNac) {
         selNac.addEventListener('change', function () {
@@ -121,7 +121,7 @@ function validarDataPassadaAndSegundaFeira(value){
         });
     }
 
-    // Submit com “loading” no botão
+    
     validator.onSuccess(function (event) {
         event.preventDefault();
 

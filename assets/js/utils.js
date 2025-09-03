@@ -15,10 +15,10 @@ function isMonday(yyyy_mm_dd) {
   if (!yyyy_mm_dd) return false;
   var p = yyyy_mm_dd.split('-');
   var dt = new Date(parseInt(p[0],10), parseInt(p[1],10)-1, parseInt(p[2],10));
-  return dt.getDay() === 1; // 0 dom, 1 seg, ...
+  return dt.getDay() === 1; 
 }
 
-// utils.js
+
 function __applyMasksNow() {
   var tel = document.getElementById('telefone');
   if (tel && window.Inputmask) {
@@ -56,11 +56,11 @@ function applyMasks() {
       console.error('Inputmask não carregado após aguardar (1s). Verifique a CDN/Network.');
       return;
     }
-    setTimeout(tentar, 100); // re-tenta a cada 100ms até 1s
+    setTimeout(tentar, 100); 
   })();
 }
 
-// Mantém sua função de data
+
 function setMinHojeNoInputDate() {
   var data = document.getElementById('data');
   if (!data) return;

@@ -167,7 +167,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-image: url(/assets/images/background-hero.png);
+    background-image: url('./images/background-hero.png');
     height: 323px;
     justify-content: center;
     align-items: center;
@@ -436,7 +436,7 @@ header {
     height: 470px;
     padding: 28px 16px 18px;
     background: #861A1C;
-    background-image: url('images/background-footer.png');
+    background-image: url('./images/background-footer.png');
     background-size: cover;
     background-position: center;
 }
