@@ -14,6 +14,7 @@ cd <desafio-ati-ma>
 ⸻
 
 🧩 O que foi implementado
+
 	•	Validações por campo (inline) com JustValidate:
 	•	Nome (mín. 3 caracteres, apenas letras/acentos/hífen/apóstrofo)
 	•	E-mail (formato válido)
